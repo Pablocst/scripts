@@ -19,12 +19,8 @@ quiet=0
 summary=0
 
 rbls=(
-spam.dnsbl.sorbs.net
-dnsbl.sorbs.net
-cbl.abuseat.org
 b.barracudacentral.org
 sbl-xbl.spamhaus.org
-zen.spamhaus.org
 bl.spamcop.net
 ubl.unsubscore.com
 cidr.bl.mcafee.com
@@ -33,12 +29,8 @@ bl.spameatingmonkey.net
 bl.score.senderscore.com
 bl.mailspike.org
 aspews.ext.sorbs.net
-b.barracudacentral.org
 bb.barracudacentral.org
 block.dnsbl.sorbs.net
-bl.score.senderscore.com
-bl.spamcop.net
-cbl.abuseat.org
 cbl.anti-spam.org.cn
 cblless.anti-spam.org.cn
 cblplus.anti-spam.org.cn
@@ -69,8 +61,6 @@ zen.spamhaus.org
 zombie.dnsbl.sorbs.net
 cbl.abuseat.org
 dnsbl.sorbs.net
-bl.spamcop.net
-zen.spamhaus.org
 dnsbl.spfbl.net
 csi.cloudmark.com
 )
