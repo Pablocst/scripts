@@ -100,7 +100,7 @@ alias backupscan='bash <(curl -ks https://codex.hostdime.com/scripts/download/ba
 alias rotacionamentoip='bash <(curl -ks https://gist.githubusercontent.com/igorhrq/db8a998cc01fcb6eb12fb330145d92f3/raw/48d898ab241f6c6d3c76e3dd8bbf642e4896178b/rotate)';
 alias memperuser='perl <(curl -ks https://codex.hostdime.com/scripts/download/memusage)';
 alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresourceconsumers)';
-alias checkiprep='bash <(curl -ks https://codesilo.dimenoc.com/elijahs/rbl/raw/master/rbl.sh)';
+alias checkiprep='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)';
 
 #PRESCRIPTS
 function domain_verify(){
