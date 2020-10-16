@@ -1,0 +1,514 @@
+#!/bin/sh
+# Last Update: Jan 09 2020
+
+<< 'CHANGELOG'
+1.0 - 10/07/2019 [ Author: Pablo Bezerra ]
+            * Initial release
+            * Ambiente do supas com algumas funções diferentes
+CHANGELOG
+
+
+# Função principal, listar todas as funções disponíveis
+function supas (){
+echo -e "\nAmbiente de Suporte :: Lista de Funcoes\n=======================================\n"
+echo -e "-----------------CODEX-----------------"
+echo -e "permdatabase\t\t->\tCorrige permissão de banco de dados"
+echo -e "allowremotedomains\t->\tDesbloquear Remote Domain"
+echo -e "moduserdir\t\t->\tLiberação de acesso temporário para usuário"
+echo -e "fixhome\t\t\t->\tAjustar permissão da home da conta"
+echo -e "realsarmemawk\t\t->\tVerificação de utilização real de memória"
+echo -e "inode\t\t\t->\tVerificar locais com excesso de utilização de inodes"
+echo -e "axonstats\t\t->\tLogs do Axon"
+echo -e "fixwordpress\t\t->\tCorrige problemas de instalação do wordpress"
+echo -e "cmscheck\t\t->\tLista CMS de uma conta"
+echo -e "pyscan\t\t\t->\tVarredura numa conta especifica."
+echo -e "roundcubeplugin\t\t->\tConfigura plugins no roundcube"
+echo -e "allowremotesmtp\t\t->\tConfigura usuário no allowsmtp do CSF "
+echo -e "-----------------Apache-----------------"
+echo -e "apache_status\t\t->\tFullstatus do Apache"
+echo -e "edit_http\t\t->\tAbre o arquivo pre_virtualhost_global.conf para edição"
+echo -e "restrict_http\t\t->\tBloqueia o acesso web da conta cPanel"
+echo -e "-----------------SPAM-----------------"
+echo -e "disable_spamdel\t\t->\tDesabilitar Auto Delete do SpamAssassin de uma conta"
+echo -e "enable_spamass\t\t->\tAtivar SpamAssassin para uma conta"
+echo -e "conf_spamass\t\t->\tConfigurar score do SpamAssassin de uma conta"
+echo -e "global_spambox\t\t->\tHabilitar Spam Box para todos do servidor"
+echo -e "-----------------EMAIL-----------------"
+echo -e "mail_usage_report\t->\tRelatório de todas as contas de e-mail do servidor"
+echo -e "cpusermail_usage\t->\tRelatório das contas de e-mail de uma conta cPanel"
+echo -e "changemail_password\t->\tAlterar senha de conta para uma aleatória"
+echo -e "nomail\t\t\t->\tDesabilitar envio de e-mail de uma conta cPanel"
+echo -e "yesmail\t\t\t->\tHabilitar envio de e-mail de uma conta cPanel"
+echo -e "delfrozen\t\t->\tRemover e-mails frozen da fila"
+echo -e "deldonmail\t\t->\tRemover e-mails de todo domínio da fila"
+echo -e "delusermail\t\t->\tRemover e-mails de uma conta da fila"
+echo -e "sendmail\t\t->\tEnviar e-mail"
+echo -e "mq\t\t\t->\tFila de e-mail para auditoria"
+echo -e "spfxuxu\t\t\t->\tRotacionamento de ip by IgorA"
+echo -e "checkmx\t\t\t->\tVerifica roteamento de e-mail e entradas MX do domínio"
+echo -e "addwhitelist\t\t->\tAdiciona domínio a whitelist, passe a conta cPanel e o domínio ou endereço"
+echo -e "removeq\t\t\t->\tRemove a fila de e-mails"
+echo -e "listc\t\t\t ->lista todas as contas"
+echo -e "listq\t\t\t->\tLista a fila com um sort"
+echo -e "createtestemail_andsend\t->\tCria um e-mail chamado hdteste no domínio primário do Home que você está, além disso manda um e-mail de teste"
+echo -e "-----------------WHM-----------------"
+echo -e "cpanelsession\t\t->\tAcesso cPanel sem senha"
+echo -e "suspend_reseller\t->\tSuspender Reseller"
+echo -e "unsuspend_reseller\t->\tRemover suspensão do Reseller"
+echo -e "autossl\t\t\t->\tGerar certificado ssl para conta"
+echo -e "-----------------cPanel-----------------"
+echo -e "restrict_mailacct\t->\tDesabilitar conta de e-mail Login/Envio/Recebimento"
+echo -e "unrestrict_mailacct\t->\tRemover bloqueio de conta de e-mail Login/Envio/Recebimento"
+echo -e "create_backup\t\t->\tGerar backup da conta em sua home"
+echo -e "check_backup\t\t->\tVerificar backups disponíveis para a conta"
+echo -e "-----------------Outros-----------------"
+echo -e "addkey\t\t\t->\tAdiciona chave SSH da HDBR no servidor"
+echo -e "acesso\t\t\t->\tGera acesso a GUI"
+echo -e "phpinfo\t\t\t->\tAdiciona o phpinfo no diretório atual"  createtestmail_andsend
+echo -e "backupscan\t\t->\tEscaneia possíveis locais de backup" 
+echo -e "rotacionamentoip\t->\tUse o --ip para especificar" 
+echo -e "checkmx\t\t\t->\tVerifica roteamento de e-mail e entradas MX do domínio" 
+echo -e "servicestatus\t\t->\tVerificar status de serviços mais comuns"
+echo -e "memperuser\t\t->\tVerifica a quantidade de memoria usada por usuario" 
+echo -e "top5\t\t\t->\tLista os 5 usuários que mais consomem recursos"
+echo -e "showzone\t\t->\tPasse o domínio para listar a zona DNS"
+echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
+echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
+echo -e "digdns\t\t->\tPasse o domínio para listar informações do dig";}
+
+
+
+supas;
+
+#CODEX
+alias ls="ls -al --color=always";export LESS="r";
+alias cmscheck='bash <(curl -ks https://codesilo.dimenoc.com/pablo.b/cmscheck/raw/master/checkallcms.sh) "$@"';
+alias allowremotedomains='bash <(curl -ks https://codex.hostdime.com/scripts/download/allowremotedomains)';
+alias changemainaccount='bash <(curl -ks https://codex.hostdime.com/scripts/download/changemainaccount)';
+alias moduserdir='bash <(curl -ks https://codex.hostdime.com/scripts/download/moduserdir)';
+alias fixhome='bash <(curl -ks https://codesilo.dimenoc.com/support/fix_known_home)';
+alias realsarmemawk='bash <(curl -ks https://codex.hostdime.com/scripts/download/realsarmemawk)';
+alias inode='python <(curl -ks https://codex.hostdime.com/scripts/download/inodeseekingmissile)';
+alias axonstats='/usr/local/cpanel/3rdparty/bin/php <(curl -ks https://codex.hostdime.com/scripts/download/snapstats)';
+alias fixwordpress='bash <(curl -ks https://codex.hostdime.com/scripts/download/wordpressfix)';
+alias pyscan='bash <(curl -ks http://legal.hostdime.com/tjb_env/run-pyscan.sh) "$@"'
+alias spfxuxu='bash <(curl -ks https://gist.githubusercontent.com/igorhrq/ec9f90a71d02adf548cf60e6aaccf006/raw/aa59ebe85243a71f76f364febf16a7ec1df395f4/spfxuxu.sh)'
+alias allowremotesmtp='bash <(curl -ks https://codex.hostdime.com/scripts/download/allowremotesmtp)';
+alias roundcubeplugin='bash <(curl -ks https://codex.hostdime.com/scripts/download/roundcubeplugin)';
+alias acesso='bash <(curl -ks https://codex.hostdime.com/scripts/download/cpanel_session)';
+alias backupscan='bash <(curl -ks https://codex.hostdime.com/scripts/download/backupscanner)';
+alias rotacionamentoip='bash <(curl -ks https://gist.githubusercontent.com/igorhrq/db8a998cc01fcb6eb12fb330145d92f3/raw/48d898ab241f6c6d3c76e3dd8bbf642e4896178b/rotate)';
+alias memperuser='perl <(curl -ks https://codex.hostdime.com/scripts/download/memusage)';
+alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresourceconsumers)';
+alias checkiprep='bash <(curl -ks https://codesilo.dimenoc.com/elijahs/rbl/raw/master/rbl.sh)';
+
+#PRESCRIPTS
+function domain_verify(){
+verifydomain=$(grep -w $domain /etc/trueuserdomains | cut -d: -f1 )
+
+if [ "$verifydomain" != "$domain" ]; then
+  echo -e "The domain \033[1;33m$domain\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function mail_verify(){
+mailuser=$(echo $user | cut -d@ -f1)
+
+if [[ ! -d "/home/$account/mail/$domain/$mailuser" ]]; then
+  echo -e "The mail account \033[1;33m$user\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function acct_verify(){
+verifyuser=$(grep -w $user /etc/trueuserdomains | cut -d: -f2 | sed 's/ //g' )
+
+if [ "$verifyuser" != "$user" ]; then
+  echo -e "The user \033[1;33m$user\033[0m does not exist: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function reseller_verify(){
+verifyreseller=$(grep -w $user /etc/trueuserowners | cut -d: -f2 | uniq | sed 's/ //g')
+
+if [ "$verifyreseller" != "$user" ]; then
+  echo -e "The user \033[1;33m$user\033[0m are not a reseller: \033[0;31m[ERROR]\033[0m"
+  kill -INT $$;
+fi;
+}
+
+function maillocate_verify(){
+local=$(grep -w $domain /etc/localdomains)
+
+if [ "$local" != "$domain" ]; then
+  echo -e "The domain \033[1;33m$domain\033[0m are configured as remote domain "
+else
+  echo -e "The domain \033[1;33m$domain\033[0m are configured as local domain "
+fi;
+}
+
+#Apache
+function apache_status() {
+	/usr/local/apache/bin/apachectl fullstatus;}
+
+function edit_http() { 
+	vim /usr/local/apache/conf/includes/pre_virtualhost_global.conf; /scripts/restartsrv_httpd; 
+}
+
+
+function restrict_http() {
+SCRIPT_PATH="/scripts/restartsrv_httpd"
+NOW=$(date +"%m-%d-%y")
+user=${1}
+acct_verify
+echo "Ticket:"
+read ticket;
+
+echo -e "<Directory \"/home/$user/public_html\">\n  AllowOverride none\n  order deny,allow\n  deny from all\n  errordocument 403 \"Temporarily closed for maintenance.\n  #\" ~$agent on $NOW Ticket: $ticket \n</Directory>\n\n" >> /usr/local/apache/conf/includes/pre_virtualhost_global.conf;
+
+"$SCRIPT_PATH";}
+
+function addkey() { echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEApOwa56qfwG5DM+cSYe207gmf5bet7ED9wulez1sYMUvTFkxz9ugpCS7E6CzAIKHiKG6yyWuhCNvHbZOo+nOvmXNCo/Xn9lMUZ65mb+vbKb6zJBY4YntsQ/lnPYhnuGHqUmV65Dj4Nysz65+bFwrBm9LUm/cFuQH50K6anzYWC7c= HDBR-20101206" >> /root/.ssh/authorized_keys ;}
+function phpinfo() { usuario=$(pwd | cut -d\/ -f3);echo "<?php phpinfo(); ?>" >> phpinfo.php; chmod 644 phpinfo.php; chown $usuario: phpinfo.php;}
+
+function createtestmail_andsend() {
+
+
+case $1 in
+  -r) FLAG=1 ;;
+
+esac
+
+
+USUARIO=$(pwd | cut -f3 -d"/")
+DOMINIO=$(egrep $USUARIO /etc/trueuserdomains | cut -d: -f1 | tail -1)
+
+uapi --user=$USUARIO Email add_pop email=hdteste password=AdQ9p-mC84567 quota=0 domain=$DOMINIO skip_update_db=1
+
+
+
+echo testeHD |exim -r hdteste@$DOMINIO -v -odf hostdimeteste@gmail.com
+echo testeHD |exim -r hdteste@$DOMINIO -v -odf testehostdime@hotmail.com
+echo testeHD |exim -r hdteste@$DOMINIO -v -odf testehostdime@yahoo.com.br
+
+if [ "$FLAG" = "1" ]; then
+
+uapi --user=$USUARIO Email delete_pop email=hdteste domain=$DOMINIO
+
+fi ;}
+
+function checkmx(){
+domain=${1}
+
+maillocate_verify
+
+echo -e "\nDNS Mx entries from $domain:"
+whmapi1 listmxs domain=$domain | grep exchange:
+}
+
+function realmemd(){
+
+file=""
+[ -z $1 ] || file="-f /var/log/sysstata/sa$1"
+
+sar -r $file | awk '
+  # Determine where each column is set
+  NR == 3 {
+    for(i = 3; i <= NF; i++) {
+      if( $i == "kbmemused" ) { kbmemused_col=i }
+      if( $i == "kbbuffers" ) { kbbuffers_col=i }
+      if( $i == "kbcached" ) { kbcached_col=i }
+      if( $i == "kbmemfree" ) { kbmemfree_col=i }
+      if( $i == "%commit" ) { commit_col=i }
+    }
+  }
+  # Pluck total memory usage from addition of a random line of "free + used"
+  NR == 4 {
+    memtotal = $3 + $4;
+  }
+  # For all lines that contain an actual usage log
+  NR >= 4 && $3 ~ /^[0-9]/ && $1 ~ /^[0-9]/ {
+    # determine real usage from "used - (buffers+cache)"
+    realusage = $kbmemused_col - ( $kbbuffers_col + $kbcached_col )
+    # percentage is simply dividing by total
+    {if (realusage > 0) {percentusage = (realusage / memtotal) * 100} else {percentusage=0}}
+    # print real usage / total (percentage)
+    printf "%s %s: %dMB / %dMB = %d%%\n", $1, $2, realusage/1000, memtotal/1000, percentusage
+  }
+'
+}
+
+function servicestatus(){
+services=(tailwatchd httpd mysql exim sshd ftpd crond imap pop)
+
+for i in "${services[@]}"; do 
+
+user=$(whmapi1 servicestatus service=$i | grep running | sed 's/ //g' | cut -d: -f2)
+
+if [ "$user" != "0" ]; then
+  echo -e "The \033[1;33m$i\033[0m service are running. \033[0;32m[OK]\033[0m"
+else
+  echo -e "The \033[1;33m$i\033[0m service is down. \033[0;31m[ERROR]\033[0m"
+fi; done;
+}
+
+
+function removeq() {
+
+exim -bp | exiqgrep -i | xargs exim -Mrm ;}
+
+
+function listq () {
+
+exim -bp | grep "<*>" | awk {'print $4'} | sort | uniq -c | sort -n ;}
+
+function listc () {
+
+OWNER=$@
+CONTA=`ls -1A /var/cpanel/users/`
+
+count=1
+for x in `echo -n "$CONTA"`;do
+usuario=`grep -i ^dns /var/cpanel/users/"$x" |cut -d= -f2`
+DOMAIN[$count]=$usuario
+count=$[$count+1]
+echo "Conta cPanel: `echo "$x"`"
+
+for i in `echo "${DOMAIN[@]}" | sed 's/ /\n/g'`;do
+for n in ` ls -A /home/"$x"/mail/"$i"/ 2>/dev/null`;do
+
+if [ "$n" == "cur" ];then echo "$n" > /dev/null
+elif [ "$n" == "new" ];then echo "$n" > /dev/null
+elif [ "$n" == "tmp" ];then echo "$n" > /dev/null
+elif [ "$n" == "" ];then echo "$n" > /dev/null
+else
+echo "$n"@"$i"
+fi
+done
+done
+echo;echo;
+done
+}
+
+function permdatabase() {
+echo "Database:"
+read database;
+echo "User:"
+read user;
+echo "Pass:"
+read pass;
+
+mysql -u root -e "GRANT ALL ON $database.* TO $user@'localhost' IDENTIFIED BY '$pass';"
+echo "#finalizado# Teste com a senha informada!"
+echo "mysql -u $user -p";}
+
+
+#EXIM MAIL
+function mq() { exim -bp | grep "<*>" | awk {'print $4'} | sort | uniq -c | sort -n ;}
+function sendmail() {
+origem=${1}
+destino=${2}
+echo TesteHD |exim -r $origem  -v -odf $destino;
+}
+
+function delusermail() {
+emailacct=${1}
+exiqgrep -i -f $emailacct | xargs exim -Mrm;
+}
+
+function deldonmail() {
+domain=${1}
+exim -bpu | grep $domain | awk {'print $3'} | xargs exim -Mrm;
+}
+
+function delfrozen() {
+	exim -bpu | grep "<>" | awk '{print $3}' | xargs exim -Mrm;
+}
+
+#API CPANEL
+#SSL
+
+function autossl(){
+user=${1}
+acct_verify
+SCRIPT_PATH="/usr/local/cpanel/bin/autossl_check"
+"$SCRIPT_PATH" --user=$user;
+}
+
+#MAIL
+function mail_usage_report() { 
+	for i in `grep : /etc/trueuserowners | cut -d: -f1`; do echo "cPanelUser:$i" >> apilist ; uapi --user=$i Email list_pops_with_disk >> apilist; >> apilist; done ; sed 's/ //g' apilist > maillist && grep -E '^diskused:|^login:|^cPanelUser:' maillist; rm -rf apilist maillist ;}
+
+function cpusermail_usage() {
+user=${1}
+acct_verify
+uapi --user=$user Email list_pops_with_disk >> apilist; >> apilist; sed 's/ //g' apilist > maillist && grep -E '^diskused:|^login:' maillist; rm -rf apilist maillist; 
+}
+
+
+function nomail() {	
+user=${1}
+acct_verify
+whmapi1 suspend_outgoing_email user=$user >>/dev/null
+echo -e "The cPanel account \033[1;33m$user\033[0m have outgoing email suspended ";
+}
+
+function yesmail() { 
+user=${1}
+acct_verify
+whmapi1 unsuspend_outgoing_email user=$user >>/dev/null
+echo -e "The cPanel account \033[1;33m$user\033[0m have outgoing email unsuspended ";
+}
+
+function restrict_mailacct(){
+user=${1}
+domain=$(echo $user | cut -d@ -f2)
+domain_verify
+account=$(grep $domain /etc/trueuserdomains | cut -d: -f2 | sed 's/ //g')
+mail_verify
+
+uapi --user=$account Email suspend_login email=$user >> /dev/null
+uapi --user=$account Email suspend_incoming email=$user >> /dev/null
+uapi --user=$account Email suspend_outgoing email=$user >> /dev/null
+
+echo -e "The mail account \033[1;33m$user\033[0m are suspended"
+}
+
+function unrestrict_mailacct(){
+user=${1}
+domain=$(echo $user | cut -d@ -f2)
+domain_verify
+account=$(grep $domain /etc/trueuserdomains | cut -d: -f2 | sed 's/ //g')
+mail_verify
+
+uapi --user=$account Email unsuspend_login email=$user >> /dev/null
+uapi --user=$account Email unsuspend_incoming email=$user >> /dev/null
+uapi --user=$account Email unsuspend_outgoing email=$user >> /dev/null
+
+echo -e "The mail account \033[1;33m$user\033[0m are unsuspended"
+}
+
+function changemail_password(){
+user=${1}
+domain=$(echo $user | cut -d@ -f2)
+domain_verify
+account=$(grep $domain /etc/trueuserdomains | cut -d: -f2 | sed 's/ //g')
+mail_verify
+
+password=$(openssl rand 10 -base64)
+
+uapi --user=$account Email passwd_pop email=$user password=$password domain=$domain >> /dev/null
+echo -e "The mail account \033[1;33m$user\033[0m have a new password \033[1;33m$password\033[0m";
+}
+
+function checkmx(){
+domain=${1}
+
+maillocate_verify
+
+echo -e "\nDNS Mx entries from $domain:"
+whmapi1 listmxs domain=$domain | grep exchange:
+}
+
+#SPAM
+function disable_spamdel() {
+user=${1}
+acct_verify
+uapi --user=$user Email disable_spam_autodelete >> /dev/null
+echo -e "Auto Delete do SpamAssassin da conta $user desativada";
+}
+
+function enable_spamass() {
+user=${1}
+acct_verify
+uapi --user=$user Email enable_spam_assassin >> /dev/null
+echo -e "SpamAssassin da conta $user ativado";
+}
+
+function conf_spamass() {
+user=${1}
+acct_verify
+echo "Score:"
+read score;
+uapi --user=$user SpamAssassin update_user_preference preference=required_score value-0=$score >> /dev/null
+echo -e "Atualizado o escore do SpamAssassin da conta $user para $score";
+}
+
+function global_spambox(){
+whmapi1 set_tweaksetting key=skipspambox value=0 ; for i in `grep : /etc/trueuserowners | cut -d: -f1`; do uapi --user=$i Email enable_spam_box; done
+}
+
+#BACKUP
+function create_backup() {
+user=${1}
+acct_verify
+uapi --user=$user Backup fullbackup_to_homedir >> /dev/null
+echo -e "Backup iniciado com sucesso, verifique a home da conta $user em breve";
+}
+
+function check_backup() {
+user=${1}
+acct_verify
+uapi --user=$user Backup list_backups | awk 'NR==6, NR==10 {print NR,$0}' | cut -d':' -f3 | awk '{print $3}';
+}
+
+#WHM
+function cpanel_session() {
+	whmapi1 create_user_session user=root service=whostmgrd locale=en | awk 'NR==8 {print NR,$0}' | cut -d':' -f2- ;
+}
+
+function suspend_reseller() {
+user=${1}
+reseller_verify
+echo "Motivo:"
+read reason;
+whmapi1 suspendreseller user=$user reason=$reason >> /dev/null
+echo -e "A revenda do usuário \033[1;33m$user\033[0m foi suspensa pelo seguinte motivo: \033[1;33m$reason\033[0m ";
+}
+
+function unsuspend_reseller() {
+user=${1};
+reseller_verify
+whmapi1 unsuspendreseller user=$user >> /dev/null
+echo -e "A suspensão da revenda do usuário \033[1;33m$user\033[0m foi removida";
+}
+
+function addwhitelist() {
+user=$(echo "$1")
+emailacc=$(echo "$2")
+echo "whitelist_from $emailacc" >> /home/$user/.spamassassin/user_prefs
+}
+
+function digdns() {
+domain=$(echo "$1")
+
+IPA=$(dig $domain A | tr -d '[:blank:]' | grep "INA" | sed -n '/[!0-9]/p' | awk -F 'INA' '{print $2}')
+MXENTRY=$(dig $domain MX | grep "MX" | awk -F "0 " '{print $2}' | sed -n 3p | tr -d '[:blank:]' | sed 's/.$//')
+MXIP=$(host $MXENTRY | sed -n '1'p | cut -f4 -d" ")
+      echo "A entrada A aponta para $IPA"
+      echo "A entrada MX aponta para $MXIP"
+
+NSENTRYSIZE=$(dig $domain NS | grep "NS" | tr -d '[:blank:]' | grep "INN" | wc -l)
+dig $domain NS > /root/tmpdigsh.txt
+i=2
+nscount=1
+declare -a NS
+while [ $i -le $NSENTRYSIZE ]
+do
+NS[$nscount]=$(cat /root/tmpdigsh.txt | grep "NS" | tr -d '[:blank:]' | grep "INN" | sed -n "$i"p | awk -F 'INNS' '{print $2}' | sed 's/.$//')
+IPNS=$(host "${NS[nscount]}")
+echo "${NS[nscount]} - $IPNS"
+nscount=$(( nscount+1 ))
+i=$(( i+1 ))
+done;
+
+rm -f /root/tmpdigsh.txt
+}
+
+function showzone() {
+domain=$(echo "$1")
+domain="${domain}.db"
+cat /var/named/$domain
+}
