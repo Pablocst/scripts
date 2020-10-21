@@ -72,6 +72,7 @@ echo -e "servicestatus\t\t->\tVerificar status de serviços mais comuns"
 echo -e "memperuser\t\t->\tVerifica a quantidade de memoria usada por usuario" 
 echo -e "top5\t\t\t->\tLista os 5 usuários que mais consomem recursos"
 echo -e "showzone\t\t->\tPasse o domínio para listar a zona DNS"
+echo -e "realmemc\t\t->\tLista o uso de memória real no CentOS"
 echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
 echo -e "digdns\t\t->\tPasse o domínio para listar informações do dig";}
@@ -101,6 +102,8 @@ alias rotacionamentoip='bash <(curl -ks https://gist.githubusercontent.com/igorh
 alias memperuser='perl <(curl -ks https://codex.hostdime.com/scripts/download/memusage)';
 alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresourceconsumers)';
 alias checkiprep='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)';
+alias fixhome='bash <(curl -ks https://codex.hostdime.com/scripts/download/fixknownhome)';
+alias realmemc='bash <(curl -ks https://codex.hostdime.com/scripts/download/realsarmemawk)';
 
 #PRESCRIPTS
 function domain_verify(){
