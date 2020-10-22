@@ -75,8 +75,8 @@ echo -e "showzone\t\t->\tPasse o domínio para listar a zona DNS"
 echo -e "realmemc\t\t->\tLista o uso de memória real no CentOS"
 echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
-echo -e "predef\t\t\t\t\t\t->\tManda a PREDEF"
-echo -e "digdns\t\t\t\t\t\t->\tPasse o domínio para listar informações do dig";}
+echo -e "predef\t\t\t\t    ->\tManda a PREDEF"
+echo -e "digdns\t\t\t\t    ->\tPasse o domínio para listar informações do dig";}
 
 
 
