@@ -174,7 +174,7 @@ if [ "$FLAG" = "1" ]; then
 
 rm -f /usr/local/csf/bin/regex.custom.pm 
 mv /usr/local/csf/bin/regex.custom.pm.bkp /usr/local/csf/bin/regex.custom.pm
-exit 0
+return 1
 
 fi
 #moving old regex.custom to be safe on this action
