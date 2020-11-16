@@ -172,7 +172,7 @@ esac
 
 if [ "$FLAG" = "1" ]; then
 
-mv /usr/local/csf/bin/regex.custom.pm /usr/local/csf/bin/regex.custom.pm.bkp2
+rm -f /usr/local/csf/bin/regex.custom.pm 
 mv /usr/local/csf/bin/regex.custom.pm.bkp /usr/local/csf/bin/regex.custom.pm
 exit 0
 
