@@ -165,8 +165,6 @@ function wploginmit() {
 # this script will help mitigate wp-login and xmlrpc attacks for servers that not use imunify modsecrules, if you server use it, you dont need install it
 # this is the first version, and we will work alot on that
 
-run() {
-
   case $1 in
   -r) FLAG=1 ;;
 
@@ -203,9 +201,7 @@ echo -e "csf and lfd was restarted"
 
 echo "the configuration was finished, all events now of bruteforce attacks on wp-login and XMLRPC should be find on var\/log\/lfd.log"
 echo "example -> \(WPLOGIN\) WP Login Attack 77.zzz.zzz.13 (-) 10 in the last 3600 secs - Blocked in csf port=80"
-}
 
-run
 }
 
 
