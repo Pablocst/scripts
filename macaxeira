@@ -176,7 +176,7 @@ mv /usr/local/csf/bin/regex.custom.pm /usr/local/csf/bin/regex.custom.pm.bkp2
 mv /usr/local/csf/bin/regex.custom.pm.bkp /usr/local/csf/bin/regex.custom.pm
 exit 0
 
-fi ;}
+fi
 #moving old regex.custom to be safe on this action
 mv /usr/local/csf/bin/regex.custom.pm /usr/local/csf/bin/regex.custom.pm.bkp
 
