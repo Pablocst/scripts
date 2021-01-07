@@ -106,7 +106,7 @@ alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresou
 alias checkiprep='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)';
 alias fixhome='bash <(curl -ks https://codex.hostdime.com/scripts/download/fixknownhome)';
 alias realmemc='bash <(curl -ks https://codex.hostdime.com/scripts/download/realsarmemawk)';
-alias deepmail=perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl')
+alias deepmail="perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl') --hours=48 root";
 
 #PRESCRIPTS
 function domain_verify(){
