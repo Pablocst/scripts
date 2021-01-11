@@ -731,12 +731,8 @@ chkconfig haldaemon off
 
 mv /etc/motd.securebak /etc/motd
 
-# Check for RBLs
-wget http://legal.hostdime.com/srvrblchk.py -O /root/srvrblchk.py
-if [[ -f /root/srvrblchk.py && `sha512sum /root/srvrblchk.py | awk '{print $1}'` == "776e77dbbada16dc288ad0584cd29b6acdc7af7034aaad252a234c65aebfdfe9eeabefcc50964f260a47eb7211f14eccc653407be33758e3c2658bf09b484b09" ]]; then
-	python /root/srvrblchk.py
-	rm -vf /root/srvrblchk.py
-fi
+# Check for RBLs ~Pablob
+bash <(curl  -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)
 
 Desa
 
