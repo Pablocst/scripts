@@ -408,7 +408,7 @@ NEOF
     cpan -i DBD::SQLite
     /scripts/sysup
     /scripts/rpmup
-    perl /scripts/upcp
+    /scripts/upcp --force
 
     if [ "$FANT" = "1" ]; then
         #Install Fantastico
