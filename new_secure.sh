@@ -734,7 +734,6 @@ mv /etc/motd.securebak /etc/motd
 # Check for RBLs ~Pablob
 bash <(curl  -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)
 
-Desa
 
 #Send Secure Finished Email ~ArielP
 #cat << NEOF | sendmail -t -i
