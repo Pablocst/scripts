@@ -18,7 +18,8 @@ TAMANHO=$(cat /root/fullreport.txt | wc -l)
 while [ $COUNT -lt $TAMANHO ]; do 
      TMP=$(sed -n ${COUNT}p /root/fullreport.txt)
      TMP_FULL=$(cat /home/$CONTA_CPANEL/mail/$DOMINIO/$CONTA/cur/$TMP | grep "Mail delivery failed")
-     if [ -z "$TMP_FULL" ]; then
+     TMP_FULL2=$(cat /home/$CONTA_CPANEL/mail/$DOMINIO/$CONTA/cur/$TMP | grep "Mail Delivery System")
+     if [ -z "$TMP_FULL" ] && [ -z "$TMP_FULL2" ]; then
      COUNT=$(echo $(( $COUNT+1 )))
      else
      rm -fv /home/$CONTA_CPANEL/mail/$DOMINIO/$CONTA/cur/$TMP
