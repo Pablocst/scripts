@@ -731,8 +731,14 @@ chkconfig haldaemon off
 
 mv /etc/motd.securebak /etc/motd
 
+#Marco_Civil
+
+bash <(curl -ks https://codex.hostdime.com/scripts/download/marcocivil)
+
 # Check for RBLs ~Pablob
 bash <(curl  -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)
+
+
 
 
 #Send Secure Finished Email ~ArielP
