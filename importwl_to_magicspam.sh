@@ -9,7 +9,7 @@ sed '/^$/d' /root/listacompleta.txt >> /root/listacompleta2.txt
 mv -f /root/listacompleta2.txt /root/listacompleta.txt
 cp /etc/magicspam/from_whitelist.lst /root/from_whitelist.lst.bkp
 cat /root/listacompleta.txt | awk -F 'whitelist_from' '{print $2}' |tr -s " " | tr -d '[:blank:]' >> /etc/magicspam/from_whitelist.lst
-tratamento=$(sort /etc/magicspam/from_whitelist.lst | uniq)
-echo $tratamento > /etc/magicspam/from_whitelist.lst
+#tratamento=$(sort /etc/magicspam/from_whitelist.lst | uniq)
+#echo $tratamento > /etc/magicspam/from_whitelist.lst
 rm -f /root/cpanel_users*
 rm -f /root/listacompleta.txt
