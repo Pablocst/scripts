@@ -2,6 +2,11 @@
 
 # If in any case anything goes wrong there will be a copy of the  original "from_whitelist" of magic Spam in /root/
 
+if [ ! -f /etc/magicspam/from_whitelist.lst ]; then
+    touch /etc/magicspam/from_whitelist.lst
+    chown magicspam:magicspam /etc/magicspam/from_whitelist.lst
+fi
+
 ls -l /var/cpanel/users/ | tr -s " " | cut -f4 -d" " > /root/cpanel_users.txt
 sed '/root/d' /root/cpanel_users.txt >> /root/cpanel_users2.txt
 for i in `cat /root/cpanel_users2.txt`; do cat /home/$i/.spamassassin/user_prefs | grep "whitelist_from" | awk -F 'someone@somewhere.com' '{print $1}' | tr -s " " | cut -f3 -d"#" >> /root/listacompleta.txt; done
