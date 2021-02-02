@@ -76,8 +76,7 @@ echo -e "realmemc\t\t->\tLista o uso de memória real no CentOS"
 echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
 echo -e "wploginmit\t\t->\tAdiciona ruleset customizado no csf"
-echo -e "deepmail\t\t->\tAdiciona ruleset customizado no csf"
-echo -e "digdns\t\t\t\t->\tPasse o domínio para listar informações do dig";}
+echo -e "deepmail\t\t->\tAdiciona ruleset customizado no csf";}
 
 
 
@@ -106,7 +105,7 @@ alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresou
 alias checkiprep='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)';
 alias fixhome='bash <(curl -ks https://codex.hostdime.com/scripts/download/fixknownhome)';
 alias realmemc='bash <(curl -ks https://codex.hostdime.com/scripts/download/realsarmemawk)';
-#alias deepmail="perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl') --hours=48 root";
+alias deepmail="perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl') --hours=48 root";
 
 #PRESCRIPTS
 function domain_verify(){
@@ -535,31 +534,7 @@ emailacc=$(echo "$2")
 echo "whitelist_from $emailacc" >> /home/$user/.spamassassin/user_prefs
 }
 
-function digdns() {
-domain=$(echo "$1")
 
-IPA=$(dig $domain A | tr -d '[:blank:]' | grep "INA" | sed -n '/[!0-9]/p' | awk -F 'INA' '{print $2}')
-MXENTRY=$(dig $domain MX | grep "MX" | awk -F "0 " '{print $2}' | sed -n 3p | tr -d '[:blank:]' | sed 's/.$//')
-MXIP=$(host $MXENTRY | sed -n '1'p | cut -f4 -d" ")
-      echo "A entrada A aponta para $IPA"
-      echo "A entrada MX aponta para $MXIP"
-
-NSENTRYSIZE=$(dig $domain NS | grep "NS" | tr -d '[:blank:]' | grep "INN" | wc -l)
-dig $domain NS > /root/tmpdigsh.txt
-i=2
-nscount=1
-declare -a NS
-while [ $i -le $NSENTRYSIZE ]
-do
-NS[$nscount]=$(cat /root/tmpdigsh.txt | grep "NS" | tr -d '[:blank:]' | grep "INN" | sed -n "$i"p | awk -F 'INNS' '{print $2}' | sed 's/.$//')
-IPNS=$(host "${NS[nscount]}")
-echo "${NS[nscount]} - $IPNS"
-nscount=$(( nscount+1 ))
-i=$(( i+1 ))
-done;
-
-rm -f /root/tmpdigsh.txt
-}
 
 function showzone() {
 domain=$(echo "$1")
