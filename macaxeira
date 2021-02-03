@@ -48,7 +48,7 @@ echo -e "spfxuxu\t\t\t->\tRotacionamento de ip by IgorA"
 echo -e "checkmx\t\t\t->\tVerifica roteamento de e-mail e entradas MX do domínio"
 echo -e "addwhitelist\t\t->\tAdiciona domínio a whitelist, passe a conta cPanel e o domínio ou endereço"
 echo -e "removeq\t\t\t->\tRemove a fila de e-mails"
-echo -e "listc\t\t\t ->lista todas as contas"
+echo -e "listc\t\t\t->lista todas as contas"
 echo -e "listq\t\t\t->\tLista a fila com um sort"
 echo -e "createtestemail_andsend\t->\tCria um e-mail chamado hdteste no domínio primário do Home que você está, além disso manda um e-mail de teste"
 echo -e "-----------------WHM-----------------"
@@ -76,7 +76,7 @@ echo -e "realmemc\t\t->\tLista o uso de memória real no CentOS"
 echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
 echo -e "wploginmit\t\t->\tAdiciona ruleset customizado no csf"
-echo -e "deepmail\t\t->\tAdiciona ruleset customizado no csf";}
+echo -e "deepmail\t\t->\tGera um relatório completo do envio de e-mails nas últimas 48H";}
 
 
 
