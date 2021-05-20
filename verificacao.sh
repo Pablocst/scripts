@@ -453,7 +453,7 @@ echo -e "\n$H1===========$H2 Logs recentes do Axon $H1===========$RS\n";
 
 echo -e "\n$H1===========$H2 Domínios com mais hits hoje  $H1===========$RS\n"; 
 
-echo -e "\n$Y1 Processando ...$RS";
+echo -e "\n$Y1 Processando ...$RS\n";
 
 current_d=$(LC_TIME=en_US date +"%d\/%B\/%Y")
 for i in `cat /etc/userdomains | cut -f1 -d":"`; do for j in `grep $i /etc/userdomains | cut -f2 -d":" | tail -n1`; do VALOR=$(grep $i /var/log/apache2/domlogs/$j/* | grep $current_d | wc -l) && echo "$i : $VALOR"; done; done > /root/tmp_hits_file.txt 2>/dev/null
@@ -463,5 +463,3 @@ rm -rf /root/tmp_hits_file.txt
 
 # Antigo script de hitsbash <(curl -ks https://codex.hostdime.com/scripts/download/topfivedomains)
 
-
-echo -e "\n${CM1}Se você encontrou algum bug ou tem alguma melhoria para o script, sinta-se livre para modificá-lo. \nMande um e-mail para renan.s@hostdime.com.br $RS"
