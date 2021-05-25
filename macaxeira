@@ -76,7 +76,9 @@ echo -e "realmemc\t\t->\tLista o uso de memória real no CentOS"
 echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
 echo -e "wploginmit\t\t->\tAdiciona ruleset customizado no csf"
-echo -e "deepmail\t\t->\tGera um relatório completo do envio de e-mails nas últimas 48H";}
+echo -e "deepmail\t\t->\tGera um relatório completo do envio de e-mails nas últimas 48H"
+echo -e "tophits\t\t->\t Gera um relatório com os 5 domínios com mais acessos"
+;}
 
 
 
@@ -105,7 +107,8 @@ alias top5='bash <(curl -ks https://codex.hostdime.com/scripts/download/topresou
 alias checkiprep='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/rbl.sh)';
 alias fixhome='bash <(curl -ks https://codex.hostdime.com/scripts/download/fixknownhome)';
 alias realmemc='bash <(curl -ks https://codex.hostdime.com/scripts/download/realsarmemawk)';
-alias deepmail="perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl') --hours=48 root";
+alias deepmail="perl <(curl -ks 'https://raw.githubusercontent.com/Pablocst/scripts/main/deepmail.pl') --hours=48 root"
+alias tophits='bash <(curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/tophits.sh)';
 
 #PRESCRIPTS
 function domain_verify(){
