@@ -86,8 +86,7 @@ echo -e "realmemd\t\t->\tLista o uso de memória real no Debian"
 echo -e "checkiprep\t\t->\tVerifica a reputaçao do IP"
 echo -e "wploginmit\t\t->\tAdiciona ruleset customizado no csf"
 echo -e "deepmail\t\t->\tGera um relatório completo do envio de e-mails nas últimas 48H"
-echo -e "tophits\t\t->\t Gera um relatório com os 5 domínios com mais acessos"
-;}
+echo -e "tophits\t\t->\t Gera um relatório com os 5 domínios com mais acessos" ;}
 
 
 
