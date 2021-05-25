@@ -2,6 +2,15 @@
 # Last Update: Jan 09 2020
 
 << 'CHANGELOG'
+
+2.0 25/05/2021 [ Author: Pablo Bezerra ]
+      * Adição das funções:
+       * realmemc/realmemd;
+       * wploginmit;
+       * deepmail;
+       * tophits;
+    
+
 1.0 - 10/07/2019 [ Author: Pablo Bezerra ]
             * Initial release
             * Ambiente do supas com algumas funções diferentes
