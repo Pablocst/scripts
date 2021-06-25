@@ -179,17 +179,10 @@ rev=$(host $newip | egrep -o " .*\.$" | grep -Po "\b((?=[a-z0-9-]{1,63}\.)[a-z0-
 
 sed -i 's/helo_data =.*/helo_data = '${rev}'/g' ${path} && echo -e "$green >> $blue The HELO was been adjusted" || echo -e "$red >> $blue error when tried adjust the HELO"
 
-#Now adjust the SPF and dkim only for localdomains
-localdomains=$(for i in $(cat /etc/localdomains | grep -P "^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$") ; do egrep $i /etc/trueuserdomains ; done | awk {'print $2'}) 
-currentip2=$(cat /etc/exim.conf | grep 'interface' | egrep -o "(((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))\.){3}((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))" | head -n 1);
-for locals in `echo $localdomains | xargs -n 1`; do 
-        /usr/local/cpanel/bin/spf_uninstaller $locals 
-        echo -e "$green >> $blue SPF was erased, now we are installing a default spf acording your new ip for: $white $locals $blue"
-        /usr/local/cpanel/bin/spf_installer $locals +ip4:${currentip2},+ip4:${mainip} complete=1 overwrite=1 preserve=0 > /dev/null 2>&1 
-        echo -e "$green >> $blueSPF adjusted for $white $locals - $pink Greetz to $blue Abuse&SecurityBR" 
-        /usr/local/cpanel/bin/dkim_keys_install $locals > /dev/null 2>&1 
-done
-        echo -e " $red Finished. any issue? Let us know igor.a@hostdime.com.br"
+#Now adjust the SPF 
+
+for i in `ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"`; do python <( curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/swap_text.py) /var/named/$i +ip4:$currentip 
+
 }
 
 
