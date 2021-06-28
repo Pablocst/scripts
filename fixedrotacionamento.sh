@@ -181,7 +181,7 @@ sed -i 's/helo_data =.*/helo_data = '${rev}'/g' ${path} && echo -e "$green >> $b
 
 #Now adjust the SPF 
 
-for i in `ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"`; do python <( curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/swap_text.py) /var/named/$i +ip4:$currentip 
+for i in `ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"`; do python <( curl -ks https://raw.githubusercontent.com/Pablocst/scripts/main/swap_text.py) "/var/named/$i" "+ip4:$currentip" "+ip4:$newip" 
 
 }
 
