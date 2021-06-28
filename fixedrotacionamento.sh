@@ -157,7 +157,7 @@ chattr -ia ${path}
 
 #check the current ip for later, remove it from the list
   if [ -z $currentip ] ; then
-    echo -e "$green>>$blue Exim conf file was with default configuration, without personalization of outgoing mailIP"
+    echo -e "$green>>$blue Exim conf file was with default configuration, without personalization related to outgoing mailIP"
     currentip=${mainip}
   fi
 
@@ -171,15 +171,17 @@ ipsshuf=$(shuf -n 1 /tmp/newlist.txt);
 
 rotate () {
 #write on exim.conf
-sed -i 's/interface =.*/interface = '${ipsshuf}'/g' ${path} && echo -e "$green >> $blue The IP was changed" || echo -e "$red >> $blue Error when try change IP"
+sed -i 's/interface =.*/interface = '${ipsshuf}'/g' ${path} && echo -e "$green >> $blue The IP was changed" || echo -e "$red >> $blue an error occurrred when trying to change IP"
 
 #Now adjust the reverse IP
 newip=$(cat /etc/exim.conf | grep 'interface' | egrep -o "(((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))\.){3}((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))" | head -n 1)
 rev=$(host $newip | egrep -o " .*\.$" | grep -Po "\b((?=[a-z0-9-]{1,63}\.)[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}\b")
 
-sed -i 's/helo_data =.*/helo_data = '${rev}'/g' ${path} && echo -e "$green >> $blue The HELO was been adjusted" || echo -e "$red >> $blue error when tried adjust the HELO"
+sed -i 's/helo_data =.*/helo_data = '${rev}'/g' ${path} && echo -e "$green >> $blue The HELO is being adjusted" || echo -e "$red >> $blue an error occurrred when trying to adjust the HELO"
 
 #Now adjust the SPF 
+
+echo -e "$green >> $blue Adjusting SPF entries, please wait ..."
 
 for i in `ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"`; do sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i; done
 }
@@ -197,12 +199,12 @@ echo -e "$green>> $blue The ip that will be used is: $white ${ipsshuf}"
 echo -e "Type (yes|No)"
 read asnwer
 if [[ "$asnwer" == "yes" ]] ; then
-  echo -e "The ip was choiced and the script will continue adjusting IP: $white $ipuses"
+  echo -e "The ip was chosen and the script will continue adjusting it: $white $ipuses"
   rotate
   clean
   break
 else
-  echo -e "$red >> You have typed no, or something takes the default asnwer, Leaving..."
+  echo -e "$red >> You have typed no, or something elsing, taking the default asnwer, Leaving..."
   exit;
 fi
 
