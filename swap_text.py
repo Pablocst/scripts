@@ -9,6 +9,6 @@ f.close()
 
 newdata = filedata.replace(old_ip,new_ip)
 
-f = open('arquivodnsfinal.txt','w')
+f = open('path','w')
 f.write(newdata)
 f.close()
