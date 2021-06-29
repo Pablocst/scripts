@@ -193,6 +193,7 @@ routing_flag=$(grep $routing_domain /etc/localdomains)
 if [[ "$rounting_flag" == "$routing_domain" ]] ; then
 
 sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
+echo -e "$green >> $blue SPF for $routing_domain adjusted accordingly the new IP"
 
 fi
 ; done
