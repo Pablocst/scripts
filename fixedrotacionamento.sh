@@ -183,7 +183,20 @@ sed -i 's/helo_data =.*/helo_data = '${rev}'/g' ${path} && echo -e "$green >> $b
 
 echo -e "$green >> $blue Adjusting SPF entries, please wait ..."
 
-for i in `ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"`; do sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i; done
+
+
+for i in $(ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"); do
+
+routing_domain=$(echo "$i" | awk -F '.db' '{print $1}')
+routing_flag=$(grep $routing_domain /etc/localdomains)
+
+if [[ "$rounting_flag" == "$routing_domain" ]] ; then
+
+sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
+
+fi
+; done
+
 }
 
 
