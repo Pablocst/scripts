@@ -190,6 +190,8 @@ for i in $(ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"); 
 routing_domain=$(echo "$i" | awk -F '.db' '{print $1}')
 routing_flag=$(grep $routing_domain /etc/localdomains)
 
+echo $routing_flag
+
 if [[ "$rounting_flag" == "$routing_domain" ]] ; then
 
 sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
