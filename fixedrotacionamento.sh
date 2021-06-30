@@ -3,7 +3,7 @@
 
 clean() {
   #remove temp files
-rm -rf /tmp/newlist.txt && echo -e "$green >> $blue Temp files was been excluded" || echo -e "$red >> $blue Something strange was happened"
+rm -rf /tmp/newlist.txt && echo -e "$green >> $blue Temp files are being excluded" || echo -e "$red >> $blue Something strange was happened"
 }
 
 clean
