@@ -187,7 +187,7 @@ echo -e "$green >> $blue Adjusting SPF entries, please wait ..."
 
 for i in $(ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"); do
 
-routing_domain=$(echo "$i" | awk -F '.db' '{print $1}')
+routing_domain=$(echo "$i" | awk -F "[\.]db" '{print $1}' 2>/dev/null)
 routing_flag=$(grep $routing_domain /etc/remotedomains)
 
 echo $routing_flag
