@@ -196,7 +196,7 @@ sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
 echo -e "$green >> $blue SPF for $routing_domain adjusted accordingly the new IP"
 
 fi
-; done
+done
 
 }
 
