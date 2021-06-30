@@ -188,11 +188,11 @@ echo -e "$green >> $blue Adjusting SPF entries, please wait ..."
 for i in $(ls -l /var/named/*.db | tr -s " " | cut -f9 -d" " | cut -f4 -d "/"); do
 
 routing_domain=$(echo "$i" | awk -F '.db' '{print $1}')
-routing_flag=$(grep $routing_domain /etc/localdomains)
+routing_flag=$(grep $routing_domain /etc/remotedomains)
 
 echo $routing_flag
 
-if [[ "$rounting_flag" == "$routing_domain" ]] ; then
+if [[ echo "$routing_flag" -ne 0 ]] ; then
 
 sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
 echo -e "$green >> $blue SPF for $routing_domain adjusted accordingly the new IP"
