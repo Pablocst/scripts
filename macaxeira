@@ -229,7 +229,7 @@ echo -e "<Directory \"/home/$user/public_html\">\n  AllowOverride none\n  order 
 
 "$SCRIPT_PATH";}
 
-function addkey() { echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEApOwa56qfwG5DM+cSYe207gmf5bet7ED9wulez1sYMUvTFkxz9ugpCS7E6CzAIKHiKG6yyWuhCNvHbZOo+nOvmXNCo/Xn9lMUZ65mb+vbKb6zJBY4YntsQ/lnPYhnuGHqUmV65Dj4Nysz65+bFwrBm9LUm/cFuQH50K6anzYWC7c= HDBR-20101206" >> /root/.ssh/authorized_keys ;}
+function addkey() { echo "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQByKTLQftmtHtmBrr/q4x3zMsCdDPFsYr+f0odUw3uZL0zwuT3UbCIsG+P0qilDvzwy4j2LEUsP4f1usbtPR3mU00UtHL8vtYYClUSkNW7iQTnPBzT3SK30J9vsQRhrGKQOHDUKQ7GEmqNwTHqK1dRovYkUHGHUmmxGww+maZr9ONe2m4ESpWdaXv7xc7lG4B4mWrsw9XXE99K+4RNyW1r36pL8QMl0D0KLofW6LRhDREjbfwxnvWzQ4W/XX7jcKLCWhwRdqp2LEfSnv89EjdHLeSZpNEhr5H7Dg0V9pZfU1wASe5g568HgFb/2/bFWjKa9v2dymM4rwMguar/0y7dh HDBR-20130617" >> /root/.ssh/authorized_keys ;}
 function phpinfo() { usuario=$(pwd | cut -d\/ -f3);echo "<?php phpinfo(); ?>" >> phpinfo.php; chmod 644 phpinfo.php; chown $usuario: phpinfo.php;}
 
 function createtestmail_andsend() {
