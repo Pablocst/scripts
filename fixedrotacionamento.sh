@@ -194,7 +194,12 @@ echo $routing_flag
 
 if [[ -z "$routing_flag" ]] ; then
 
-sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
+routing_flag2=$(grep "ip4:$newip" /var/named/$i)
+echo "$rounting_flag2"
+     if [[ -z $routing_flag2 ]]; then
+              sed -i "s/+ip4:$currentip/+ip4:$newip/g" /var/named/$i
+     fi
+
 echo -e "$green >> $blue SPF for $routing_domain adjusted accordingly the new IP"
 
 fi
