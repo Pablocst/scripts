@@ -157,8 +157,13 @@ fi;
 
 function ipsaida(){
 
-cat /etc/exim.conf | grep 'interface' | egrep -o "(((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))\.){3}((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))" | head -n 1
+IP_DE_SAIDA=$(cat /etc/exim.conf | grep 'interface' | egrep -o "(((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))\.){3}((1[0-9]|[1-9]?)[0-9]|2([0-4][0-9]|5[0-5]))" | head -n 1)
+     if [[ -z $IP_DE_SAIDA ]]; then
+        cat /var/cpanel/mainip && echo -e ""
+     else
+        echo "$IP_DE_SAIDA"
 
+     fi
 }
 
 function maillocate_verify(){
