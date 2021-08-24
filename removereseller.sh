@@ -7,4 +7,6 @@ else
   RESELLER=$1
 fi
 
-for i in `grep $RESELLER /etc/trueuserowners | cut -f1 -d":" | grep -v $RESELLER`; do /scripts/removeacct --force; done
+for i in `grep $RESELLER /etc/trueuserowners | cut -f1 -d":" | grep -v $RESELLER`; do /scripts/removeacct --force $i; done
+
+/scripts/removeacct --force $RESELLER
