@@ -1,4 +1,4 @@
-
+#!/bin/bash
 
 apt-get update -y
 apt-get install wget -y
@@ -15,3 +15,4 @@ git submodule update
 make
 make install
 cd ..
+git clone --depth 1 https://github.com/SpiderLabs/ModSecurity-nginx.git
