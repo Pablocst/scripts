@@ -25,7 +25,7 @@ cd nginx-$VERSAO
 ./configure --with-compat --add-dynamic-module=../ModSecurity-nginx
 make modules
 cp objs/ngx_http_modsecurity_module.so /etc/nginx/modules
-sed -i '4 i load_module modules/ngx_http_modsecurity_module.so;' /etc/nginx/nginx.conf
+sed -i '4 i load_module /usr/share/nginx/modules/ngx_http_modsecurity_module.so;' /etc/nginx/nginx.conf
 mkdir /etc/nginx/modsec
 wget -P /etc/nginx/modsec/ https://raw.githubusercontent.com/SpiderLabs/ModSecurity/v3/master/modsecurity.conf-recommended
 mv /etc/nginx/modsec/modsecurity.conf-recommended /etc/nginx/modsec/modsecurity.conf
