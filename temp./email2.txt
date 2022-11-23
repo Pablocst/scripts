@@ -1,0 +1,273 @@
+To: palbuquerque@palbuquerque.online
+Subject: =?utf-8?Q?Test_mail_maar_deze_keer_zonder_queue_aub?=
+From: "test" <test@testmail.com>
+Mime-Version: 1.0
+Content-Type: multipart/alternative; boundary="B_ALT_63623c0d8ac02"
+
+This is a multi-part message in MIME format.
+Your email application may not support this format.
+
+--B_ALT_63623c0d8ac02
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+VGVzdCBlbWFpbAoKRGVidWcKRGl0IGlzIGVlbiBkZWJ1ZyB0ZXN0IG1haWwKCiAKIAogwqAKIAog
+CiAKRWx6ZW5kYWFsY29sbGVnZQpCb3htZWVyIGJlem9la2FkcmVzIC8gQmlsZGVyYmVla3N0cmFh
+dCAyNyAvIDU4MzEgQ1cgQm94bWVlcgpHZW5uZXAgYmV6b2VrYWRyZXMgLyBTdGllbWVuc3dlZyA0
+MCAvIDY1OTEgTUQgR2VubmVwCmluZm9AZWx6ZW5kYWFsY29sbGVnZS5ubCAvIHd3dy5lbHplbmRh
+YWxjb2xsZWdlLm5sCiAKIAogCiDCoAoK
+
+--B_ALT_63623c0d8ac02
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+CTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<title>Elzendaalcollege</title>
+<style type=3D"text/css">
+	/* Default CSS */
+	body, #body_style {
+		margin: 0;
+		padding: 0;
+		background: #ffffff;
+		font-size: 13px;
+		color: #000000;
+	}
+	a {
+		color: #ab0535;
+	}
+	a img {
+		border: none;
+		text-decoration: none;
+	}
+	table, table td {
+		border-collapse: collapse;
+	}
+	p {
+		margin: 0 0 1.6em 0;
+	}
+	ul, ol{
+		padding-left: 20px;
+	}
+
+	/* Top links */
+	.topLinks {
+		background: #ededed;
+	}
+	.social {
+		padding: 0px;
+	}
+
+	/* CSS for specific screen width(s) */
+	@media only screen and (max-width: 480px) {
+		body, table, td, p, a, li, blockquote {
+			-webkit-text-size-adjust: none !important;
+		}
+		body[yahoofix] table {
+			width: 100% !important;
+		}
+		body[yahoofix] .bigHeader img {
+			height: auto !important;
+			max-width: 100% !important;
+		}
+		body[yahoofix] .smallHeader img {
+			height: auto !important;
+			max-width: 100% !important;
+		}
+		body[yahoofix] .sectionArticleTitle, body[yahoofix] .sectionArticleConten=
+t {
+			text-align: center;
+			padding: 0 5px 10px 5px;
+		}
+		body[yahoofix] table.footerLeft {
+			width: 65% !important;
+			margin: 0px 0px 20px 0px;
+		}
+		body[yahoofix] .spacerBig {
+			width: 10% !important;
+		}
+		body[yahoofix] .centerBig {
+			width: 80% !important;
+		}
+		body[yahoofix] .spacerBigSlogan {
+			width: 10% !important;
+		}
+		body[yahoofix] .spacerBigSloganEnd {
+			width: 15% !important;
+		}
+		body[yahoofix] .centerBigSlogan {
+			width: 75% !important;
+			font-size: 23px !important;
+			line-height: 26px !important;
+		}
+		body[yahoofix] .social {
+			width: 100% !important;
+			float: left;
+			padding: 0px;
+		}
+		body[yahoofix] .noPadding {
+			padding: 0px;
+			margin: 0px;
+		}
+		body[yahoofix] table.footerSpace {
+			border: 0px !important;
+		}
+	}
+/* Based on The MailChimp Reset INLINE: Yes. */
+/* Client-specific Styles */
+#outlook a {
+	padding: 0;
+} /* Force Outlook to provide a "view in browser" menu link. */
+
+/* Prevent Webkit and Windows Mobile platforms from changing default font s=
+izes.*/
+.ExternalClass {
+	width: 100%;
+} /* Force Hotmail to display emails at full width */
+.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.Ex=
+ternalClass td,.ExternalClass div {
+	line-height: 100%;
+}
+
+/* Forces Hotmail to display normal line spacing. More on that: http://www.=
+emailonacid.com/forum/viewthread/43/ */
+#backgroundTable {
+	margin: 0;
+	padding: 0;
+	width: 100% !important;
+	line-height: 100% !important;
+}
+
+/* End reset */
+
+/* Yahoo paragraph fix
+		Bring inline: Yes. */
+p {
+	margin: 0;
+}
+
+/* Outlook 07, 10 Padding issue fix
+		Bring inline: No.*/
+table td {
+	border-collapse: collapse;
+}
+</style>
+
+</head>
+<body style=3D"-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; =
+margin: 0; padding: 0; width: 100%;">
+	<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" id=3D"backgroundTa=
+ble" bgcolor=3D"#ededed" style=3D"border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0; width: 100%; line-he=
+ight: 100%;">
+		<tr>
+			<td valign=3D"top">
+				<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"center=
+" style=3D"font-family: Arial; border-collapse: collapse; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt;">
+					<tr>
+						<td width=3D"550" valign=3D"top" align=3D"left" bgcolor=3D"#ffffff">
+							<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"lef=
+t" style=3D"font-family: Arial; border-collapse: collapse; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt;">
+								<tr>
+									<td width=3D"550" valign=3D"top" align=3D"left" bgcolor=3D"#ffffff=
+" style=3D"line-height: 0px;">
+										<img src=3D"https://www.elzendaalcollege.nl/assets/default/img/el=
+zendaal-mailing-header.gif" width=3D"100%" border=3D"0" alt=3D"" style=3D"o=
+utline: none; text-decoration: none; -ms-interpolation-mode: bicubic; borde=
+r: none;" />
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td width=3D"550" height=3D"10" valign=3D"top" align=3D"left" bgcolor=
+=3D"#ededed"></td>
+					</tr>
+					<!-- INTRO ITEMS -->
+					<tr>
+						<td width=3D"550" valign=3D"top" align=3D"center" bgcolor=3D"#ffffff"=
+>
+							<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" align=3D"cen=
+ter" style=3D"font-family: Arial; border-collapse: collapse; mso-table-lspa=
+ce: 0pt; mso-table-rspace: 0pt;">
+								<tr>
+									<td width=3D"550" height=3D"22" colspan=3D"3" valign=3D"top" align=
+=3D"left" bgcolor=3D"#ffffff"></td>
+								</tr>
+								<tr>
+									<td width=3D"30" valign=3D"top" align=3D"left" bgcolor=3D"#ffffff"=
+></td>
+									<td width=3D"490" valign=3D"top" align=3D"left" bgcolor=3D"#ffffff=
+" style=3D"font-family: Arial; font-size: 13px; color: #000000; line-height=
+: 18px;">
+										<h1 style=3D"font-family: Arial; font-size: 18px; color: #ab0535;=
+ font-weight: bold; line-height: 18px; padding-top: 0px; padding-bottom: 0p=
+x; margin: 0px;">Test email</h1><br />
+
+
+<h1>Debug</h1>
+<p>Dit is een debug test mail</p>
+
+
+<br/>
+								<td width=3D"30" valign=3D"top" align=3D"left" bgcolor=3D"#ffffff">=
+</td>
+								</tr>
+							</table>						=09
+						</td>
+					</tr>
+					<tr>
+						<td width=3D"550" height=3D"10" valign=3D"top" align=3D"left" bgcolor=
+=3D"#ededed"></td>
+					</tr>
+				=09
+					<!-- FOOTER -->
+					<tr>
+			 <td>
+			 <table border=3D"0" cellspacing=3D"0" cellspacing=3D"" summary=3D"" wid=
+th=3D"550" align=3D"center" bgcolor=3D"#ab0535">
+			 <tr><td colspan=3D"3" style=3D"line-height: 30px;"> </td></tr>
+			 <tr>
+			 	<td width=3D"5%" class=3D"spacerBig" valign=3D"top" align=3D"left"></t=
+d>
+			 <td width=3D"90%" class=3D"centerBig" valign=3D"top" align=3D"center" s=
+tyle=3D"font-family: Arial; font-size: 13px; color: #ffffff; line-height: 1=
+8px;">
+								<span class=3D"appleLinks" style=3D"color:#ffffff; font-size: 13px;=
+"><strong>Elzendaalcollege</strong></span><br />
+								<span class=3D"appleLinks" style=3D"color:#ffffff; font-size: 13px;=
+">Boxmeer bezoekadres / Bilderbeekstraat 27 / 5831 CW Boxmeer</span><br />
+								<span class=3D"appleLinks" style=3D"color:#ffffff; font-size: 13px;=
+">Gennep bezoekadres / Stiemensweg 40 / 6591 MD Gennep</span><br/>
+								<span class=3D"appleLinks" style=3D"color:#ffffff; font-size: 13px;=
+"><a style=3D"font-family: Arial; font-size: 13px; color: #ffffff; font-wei=
+ght: 400; line-height: 18px; text-decoration: none;" href=3D"mailto:info@el=
+zendaalcollege.nl" target=3D"_blank">info@elzendaalcollege.nl</a> / <a styl=
+e=3D"font-family: Arial; font-size: 13px; color: #ffffff; font-weight: 400;=
+ line-height: 18px; text-decoration: none;" href=3D"http://elzendaalcollege=
+.nl" target=3D"_blank">www.elzendaalcollege.nl</a></span>
+			 </td>
+			 <td width=3D"5%" class=3D"spacerBig" valign=3D"top" align=3D"left"></td=
+>
+			 </tr>
+			 <tr><td colspan=3D"3" style=3D"line-height: 30px;"> </td></tr>
+			 </table>
+			 </td>
+			 </tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- End of wrapper table -->
+</body>
+</html>
+
+--B_ALT_63623c0d8ac02--
